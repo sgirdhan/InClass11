@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">InClass11</string>
+    <string name="buttonLogin">Login</string>
+    <string name="buttonSignup">Signup</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="buttonLabelCreateAccount">Create New Account</string>
+    <string name="buttonSignupLabel">Sign up</string>
+    <string name="buttonCancelLabel">Cancel</string>
+    <string name="passwordHint">Password</string>
+    <string name="hintFullname">Fullname</string>
+    <string name="hintEmail">Email</string>
+    <string name="textNoExpense">There is no expense to show, Please add your expenses from the menu</string>
+    <string name="textLabelCurrentExpenses">Current expenses:</string>
+    <string name="addExpenseButton">Add Expense</string>
+    <string name="cancelButtonLabel">Cancel</string>
+    <string name="ExpenseNameLabel">Expense Name</string>
+    <string name="expenseNameHint">Expense Name</string>
+    <string name="categoryLabel">Category</string>
+    <string name="amountLabel">Amount</string>
+    <string name="addExpenseTitle">Add An Expense</string>
+    <string name="detailsTitle">Expense Details</string>
+    <string name="nameDetailLabel">Name</string>
+    <string name="dateLabel">Date</string>
+    <string name="buttonCloseLabel">Close</string>
+    <string name="expenseDeleted">Expense Deleted</string>
+    <string name="loginActivityTitle">Expense App (Login)</string>
+    <string name="signupActivityTitle">Expense App (Signup)</string>
+    <string name="appActivityTitle">Expense App </string>
+    <string name="detailActivityTitle">Show Expense</string>
+    <string name="addExpenseActivityTitle">Add Expense</string>
+</resources>
