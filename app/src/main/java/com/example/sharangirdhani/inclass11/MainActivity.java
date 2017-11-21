@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         buttonLogin = (Button) findViewById(R.id.buttonMainLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
         });
 
         mAuth = FirebaseAuth.getInstance();
-
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -104,12 +102,20 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
         String email = ((EditText) findViewById(R.id.editMainEmail)).getText().toString().trim();
         String password = ((EditText) findViewById(R.id.editMainPassword)).getText().toString().trim();
 
-        mAuth.signInWithEmailAndPassword(email,password).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(mAuth.getCurrentUser() == null) {
+            mAuth.signInWithEmailAndPassword(email,password).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, ContactsListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.sharangirdhani.inclass11;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -135,15 +136,11 @@ public class SignupActivity extends AppCompatActivity {
                         UserProfileChangeRequest changeRequest = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(firstname + " " + lastname)
                                 .build();
-                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(changeRequest).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(changeRequest);
 
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                FirebaseAuth.getInstance().signOut();
-                                FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password);
-                                finish();
-                            }
-                        });
+                        Intent intent = new Intent(SignupActivity.this, ContactsListActivity.class);
+                        startActivity(intent);
+                        finish();
 
                     } else {
                         try{

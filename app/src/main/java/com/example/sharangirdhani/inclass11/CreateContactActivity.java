@@ -115,7 +115,7 @@ public class CreateContactActivity extends AppCompatActivity {
                 }
 
                 if(isValid) {
-                    final DatabaseReference contactId = firebaseDatabase.getReference("contacts").push();
+                    final DatabaseReference contactId = firebaseDatabase.getReference("contacts").child(firebaseAuth.getCurrentUser().getUid()).push();
 
                     InputStream inp = null;
                     try {

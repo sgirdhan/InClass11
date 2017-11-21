@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -44,7 +43,7 @@ public class ContactsListActivity extends AppCompatActivity implements ContactLi
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        tvFullName.setText(firebaseAuth.getCurrentUser().getDisplayName());
+        //tvFullName.setText(firebaseAuth.getCurrentUser().getDisplayName());
 
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setCustomView(R.layout.row);
@@ -76,7 +75,7 @@ public class ContactsListActivity extends AppCompatActivity implements ContactLi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ContactsListActivity.this, EditUserActivity.class);
-                startActivityForResult(intent, 200);
+                startActivity(intent);
             }
         });
 
@@ -86,7 +85,7 @@ public class ContactsListActivity extends AppCompatActivity implements ContactLi
         rvContacts.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
 
-        firebaseDatabase.getReference().child("contacts").addChildEventListener(new ChildEventListener() {
+        firebaseDatabase.getReference().child("contacts").child(firebaseAuth.getCurrentUser().getUid()).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Contacts contacts = dataSnapshot.getValue(Contacts.class);
@@ -125,24 +124,7 @@ public class ContactsListActivity extends AppCompatActivity implements ContactLi
     @Override
     public void deleteContact(int position) {
         Contacts contacts = contactsList.get(position);
-        firebaseDatabase.getReference().child("contacts").child(contacts.getId()).setValue(null);
+        firebaseDatabase.getReference().child("contacts").child(firebaseAuth.getCurrentUser().getUid()).child(contacts.getId()).setValue(null);
         contactsList.remove(position);
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 200) {
-            if(resultCode == RESULT_OK) {
-                tvFullName.setText(firebaseAuth.getCurrentUser().getDisplayName());
-            }
-            else {
-                Toast.makeText(ContactsListActivity.this, "Wrong Result Code", Toast.LENGTH_LONG).show();
-            }
-        }
-        else {
-            Toast.makeText(ContactsListActivity.this, "Wrong Request Code", Toast.LENGTH_LONG).show();
-        }
     }
 }
