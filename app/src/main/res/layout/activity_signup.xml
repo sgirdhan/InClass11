@@ -14,80 +14,89 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:id="@+id/editSignupFirstname"
+        android:hint="First Name"
+        android:layout_below="@+id/imgBtn_camImage"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editSignupLastname"
+        android:hint="Last Name"
+        android:layout_below="@+id/editSignupFirstname"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/editSignupEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/editSignupLastname"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/editSignupPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editSignupEmail"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="Password (min 8 characters)"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editSignupRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonSignupCreate"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/editSignupPassword"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Repeat Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonSignupCancel"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editSignupRepeat"
+        android:layout_alignTop="@+id/buttonSignupCreate"
+        android:layout_marginLeft="52dp"
+        android:text="Cancel" />
+
+    <Button
+        android:id="@+id/buttonSignupCreate"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/editSignupRepeat"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="44dp"
+        android:onClick="onClickSignup"
+        android:text="Sign Up" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_camImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/editSignupFirstname"
-        android:hint="First Name" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editSignupFirstname"
-        android:layout_alignRight="@+id/editSignupFirstname"
-        android:layout_alignEnd="@+id/editSignupFirstname"
-        android:layout_marginTop="38dp"
-        android:id="@+id/editSignupLastname"
-        android:hint="Last Name" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editSignupLastname"
-        android:layout_alignLeft="@+id/editSignupLastname"
-        android:layout_alignStart="@+id/editSignupLastname"
-        android:layout_marginTop="23dp"
-        android:id="@+id/editSignupEmail"
-        android:hint="E-mail" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editSignupEmail"
-        android:layout_alignStart="@+id/editSignupEmail"
-        android:id="@+id/editSignupPassword"
-        android:hint="Choose Password" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editSignupPassword"
-        android:layout_alignLeft="@+id/editSignupPassword"
-        android:layout_alignStart="@+id/editSignupPassword"
-        android:layout_marginTop="28dp"
-        android:id="@+id/editSignupRepeat"
-        android:hint="Repeat Password" />
-
-    <Button
-        android:text="@string/buttonCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editSignupRepeat"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="36dp"
-        android:id="@+id/buttonSignupCancel" />
-
-    <Button
-        android:text="@string/buttonSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonSignupCancel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="44dp"
-        android:layout_marginEnd="44dp"
-        android:id="@+id/buttonSignupCreate"
-        android:onClick="onClickSignup" />
+        android:layout_marginTop="34dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/default_cam" />
 
 </RelativeLayout>
